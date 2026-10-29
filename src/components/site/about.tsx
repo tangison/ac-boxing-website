@@ -1,99 +1,89 @@
-import Image from "next/image";
-import { Eye, Target } from "lucide-react";
-import { SectionHeading } from "./section-heading";
-import { Reveal } from "./reveal";
+const ROSTER = [
+  "Julius Indongo",
+  "Paulus Moses",
+  "Sakaria Lukas",
+  "Walter Kautondokwa",
+  "Flame Nangolo",
+  "Vikapita Meroro",
+  "Charles Shinima",
+  "Paulus Ambunda",
+  "Hafeni Ngesheya",
+  "Divas Namugongo",
+];
+
+const INDUSTRY = [
+  "Matchroom Boxing",
+  "Top Rank, Inc.",
+  "Knuckleheads Boxing",
+  "Viva Promotions",
+  "Manny Pacquiao Promotions",
+  "Boxxer",
+  "Golden Boy Promotions",
+  "Premier Boxing Champions",
+  "Golden Gloves",
+];
+
+const FACTS = [
+  { label: "Based in", value: "Windhoek, Namibia" },
+  { label: "What it is", value: "A non-profit sports development organisation" },
+  { label: "Facility", value: "The AC Boxing Academy, Eros Primary School" },
+];
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-20 py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <SectionHeading
-              kicker="About Us"
-              title="More Than a Gym — A Pathway"
-            />
-            <Reveal delay={0.1}>
-              <div className="mt-6 space-y-5 text-base leading-relaxed text-zinc-300 sm:text-lg">
-                <p>
-                  AC Boxing Sport &amp; Entertainment is a Namibia-based
-                  non-profit sports development organisation committed to
-                  advancing boxing, nurturing young talent and creating positive
-                  opportunities for children and young people through sport.
-                </p>
-                <p>
-                  Based in Windhoek, the organisation combines grassroots athlete
-                  development with professional boxing promotion and
-                  international industry relationships. Through its
-                  community-focused work and its professional activities under
-                  AC Promotions, it helps athletes develop their skills, access
-                  competitive opportunities and build pathways from grassroots
-                  participation to the professional level.
-                </p>
-              </div>
-            </Reveal>
-          </div>
+    <section id="organisation" className="wrap py-[110px] md:py-[150px]">
+      <h2 className="head" data-reveal>
+        Who we are
+      </h2>
 
-          <Reveal delay={0.15} className="relative">
-            <div
-              className="absolute -left-3 -top-3 h-full w-full rounded-2xl border-2 border-[#e11d2e]/40"
-              aria-hidden="true"
-            />
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image
-                src="/images/gym.jpg"
-                alt="A boxing gym with a ring ready for training"
-                fill
-                loading="eager"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c]/70 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 rounded-sm border border-white/15 bg-black/60 px-4 py-2 backdrop-blur">
-                <p className="font-display text-sm font-semibold uppercase tracking-widest text-white">
-                  Eros, Windhoek · Namibia
-                </p>
-              </div>
+      {/* Row one: side facts at the left margin, wide paragraph from the table line */}
+      <div className="mt-14 grid grid-cols-1 gap-y-10 md:grid-cols-12 md:gap-y-0">
+        <dl className="contents md:col-span-4">
+          {FACTS.map((fact) => (
+            <div key={fact.label} className="mb-5 max-w-[220px] md:block">
+              <dt className="small muted">{fact.label}</dt>
+              <dd className="small mt-1">{fact.value}</dd>
             </div>
-          </Reveal>
-        </div>
+          ))}
+        </dl>
+        <p
+          data-reveal
+          className="lead max-w-[56ch] md:col-span-8 md:col-start-5"
+        >
+          AC Boxing advances boxing in Namibia and creates opportunities for
+          young people through sport. Grassroots coaching sits under the same
+          name as professional promotion, so talent raised at Eros can train,
+          compete and turn professional without leaving the family that
+          developed it.
+        </p>
+      </div>
 
-        {/* Vision & Mission */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          <Reveal>
-            <article className="h-full rounded-2xl border border-white/10 bg-[#131316] p-8 transition-colors hover:border-[#e11d2e]/40">
-              <div className="flex h-12 w-12 items-center justify-center rounded-sm bg-[#e11d2e]">
-                <Eye className="h-6 w-6 text-white" aria-hidden="true" />
-              </div>
-              <h3 className="mt-6 font-display text-2xl font-semibold uppercase tracking-wide text-white">
-                Our Vision
-              </h3>
-              <p className="mt-4 leading-relaxed text-zinc-400">
-                To contribute to a strong and sustainable boxing environment in
-                Namibia — where young people can access quality coaching and
-                facilities, talented athletes can progress to national and
-                international competition, and boxing creates lasting social and
-                sporting opportunities.
-              </p>
-            </article>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <article className="h-full rounded-2xl border border-white/10 bg-[#131316] p-8 transition-colors hover:border-[#e11d2e]/40">
-              <div className="flex h-12 w-12 items-center justify-center rounded-sm bg-[#e11d2e]">
-                <Target className="h-6 w-6 text-white" aria-hidden="true" />
-              </div>
-              <h3 className="mt-6 font-display text-2xl font-semibold uppercase tracking-wide text-white">
-                Our Mission
-              </h3>
-              <p className="mt-4 leading-relaxed text-zinc-400">
-                To develop boxers at every stage of their journey through
-                coaching, mentorship, athlete development, competition,
-                partnerships and improved sports infrastructure — while
-                promoting discipline, respect, resilience, education and
-                community participation.
-              </p>
-            </article>
-          </Reveal>
+      {/* Row two: the record of the practice, two list columns from the table line */}
+      <div className="mt-[100px] grid grid-cols-1 gap-y-12 md:mt-[130px] md:grid-cols-12">
+        <p className="small muted md:col-span-4">The record</p>
+        <div className="md:col-span-8 md:col-start-5" data-reveal data-stagger>
+          <div className="grid grid-cols-1 gap-x-16 gap-y-12 sm:grid-cols-2">
+            <div>
+              <h3 className="small font-medium">Boxers we have promoted</h3>
+              <ul className="mt-5 space-y-3" style={{ fontSize: "1.25rem", lineHeight: 1.3 }}>
+                {ROSTER.map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="small font-medium">Industry relationships</h3>
+              <ul className="mt-5 space-y-3" style={{ fontSize: "1.25rem", lineHeight: 1.3 }}>
+                {INDUSTRY.map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="small muted mt-12 max-w-[52ch]">
+            Names provided by the organisation. Specific promotional or
+            management roles can be documented where due diligence requires it.
+          </p>
         </div>
       </div>
     </section>

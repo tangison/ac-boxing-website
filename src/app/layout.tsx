@@ -1,38 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const oswald = Oswald({
-  variable: "--font-oswald",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
-  title: "AC Boxing Sport & Entertainment | Developing Boxers. Building Champions.",
+  title: "AC Boxing, Windhoek | From age four to fight night",
   description:
-    "AC Boxing Sport & Entertainment is a Windhoek-based non-profit sports development organisation advancing boxing in Namibia — grassroots youth development, the AC Boxing Academy infrastructure project, and professional boxing through AC Promotions.",
+    "AC Boxing Sport & Entertainment is a non-profit boxing organisation in Windhoek, Namibia: a grassroots gym of young boxers, the AC Boxing Academy rising at Eros Primary School, and professional promotion through AC Promotions.",
   keywords: [
     "AC Boxing",
-    "Namibia boxing",
-    "Windhoek",
-    "youth development",
+    "Windhoek boxing",
+    "Namibia",
+    "youth boxing",
     "AC Promotions",
-    "boxing academy",
+    "Eros Primary School",
     "non-profit sport",
   ],
   openGraph: {
-    title: "AC Boxing Sport & Entertainment",
+    title: "AC Boxing, Windhoek",
     description:
-      "Developing Boxers. Building Champions. Creating Opportunity. Grassroots boxing, athlete development and professional promotion in Windhoek, Namibia.",
+      "A non-profit gym developing young boxers and professional champions, at Eros Primary School, Windhoek.",
     siteName: "AC Boxing Sport & Entertainment",
     type: "website",
   },
@@ -45,10 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${oswald.variable} antialiased`}>
-        {children}
-        <Toaster position="bottom-right" />
-      </body>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

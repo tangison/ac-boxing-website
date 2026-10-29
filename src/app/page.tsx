@@ -1,29 +1,31 @@
-import { Navbar } from "@/components/site/navbar";
+import { Motion } from "@/components/site/motion";
 import { Hero } from "@/components/site/hero";
 import { About } from "@/components/site/about";
-import { Grassroots } from "@/components/site/grassroots";
-import { Academy } from "@/components/site/academy";
-import { Promotions } from "@/components/site/promotions";
-import { Community } from "@/components/site/community";
-import { PartnerCta } from "@/components/site/partner-cta";
+import { Figures } from "@/components/site/figures";
+import { Mosaic } from "@/components/site/mosaic";
+import { Band } from "@/components/site/band";
+import { Pillars } from "@/components/site/pillars";
+import { Record } from "@/components/site/record";
+import { Industry } from "@/components/site/industry";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#0a0a0c] text-zinc-100">
-      <Navbar />
-      <main className="flex-1">
-        <Hero />
+    <>
+      <Hero />
+      <main>
         <About />
-        <Grassroots />
-        <Academy />
-        <Promotions />
-        <Community />
-        <PartnerCta />
+        <Figures />
+        <Mosaic />
+        <Band />
+        <Pillars />
+        <Record />
+        <Industry />
         <Contact />
       </main>
       <Footer />
-    </div>
+      <Motion />
+    </>
   );
 }
