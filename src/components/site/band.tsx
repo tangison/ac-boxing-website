@@ -52,8 +52,9 @@ export function Band() {
               <figcaption
                 className="absolute left-0 top-0 p-6 text-white"
                 style={{
+                  // neutral scrim over the photo corner for legibility (the allowed exception)
                   background:
-                    "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0))",
+                    "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0))", // taste-skill-ignore
                   fontSize: "var(--step-lead)",
                   fontWeight: 700,
                   letterSpacing: "-0.02em",
